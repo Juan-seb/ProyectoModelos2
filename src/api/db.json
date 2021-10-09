@@ -1,0 +1,441 @@
+{
+  "ciudades": [
+    {
+      "ciu_i_id": 1,
+      "ciu_v_nombre": "Bogota"
+    },
+    {
+      "ciu_i_id": 2,
+      "ciu_v_nombre": "Barranquilla"
+    },
+    {
+      "ciu_i_id": 3,
+      "ciu_v_nombre": "Cali"
+    },
+    {
+      "ciu_i_id": 4,
+      "ciu_v_nombre": "Pasto"
+    },
+    {
+      "ciu_i_id": 5,
+      "ciu_v_nombre": "Riohacha"
+    }
+  ],
+  "cartelera": [
+    {
+      "id": 1,
+      "ciudad": "Bogota",
+      "data": [
+        {
+          "pel_i_id": 1,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_banner_mobile/7/0/8/2/12807-29-esl-CO/BOND_Cineco_6-Banner-Movil-(Foto)_800x600.jpg",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ciudad": "Barranquilla",
+      "data": [
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/7/3/3/0/20337-1-esl-CO/Poster-MEMORIA.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/7/3/3/0/20337-1-esl-CO/Poster-MEMORIA.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/7/3/3/0/20337-1-esl-CO/Poster-MEMORIA.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/7/3/3/0/20337-1-esl-CO/Poster-MEMORIA.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "estrenos": [
+    {
+      "id": 1,
+      "ciudad": "Bogota",
+      "data": [
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ciudad": "Barranquilla",
+      "data": [
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        },
+        {
+          "pel_i_id": 5,
+          "pel_v_titulo": "Hombres de negro",
+          "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+          "pel_i_duracion": "165 minutos",
+          "pel_d_estreno": "11/01/2002",
+          "pel_v_ruta_banner": "img",
+          "pel_i_edad_minima": 20,
+          "generos": [
+            {
+              "gen_v_nombre": "Miedo"
+            },
+            {
+              "gen_v_nombre": "Terror"
+            },
+            {
+              "gen_v_nombre": "Acción"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Juanito",
+      "pass": "Hola"
+    }
+  ],
+  "peliculas": [
+    {
+      "id":1,
+      "pel_i_id": 5,
+      "pel_v_titulo": "Hombres de negro",
+      "pel_v_ruta_imagen": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_poster/8/2/0/0/20028-1-esl-CO/02_STB_P143_Ringfight_ARG.jpg",
+      "pel_i_duracion": "165 minutos",
+      "pel_d_estreno": "11/01/2002",
+      "pel_v_ruta_banner": "https://archivos-cms.cinecolombia.com/images/_aliases/exhibition_banner_mobile/7/0/8/2/12807-29-esl-CO/BOND_Cineco_6-Banner-Movil-(Foto)_800x600.jpg",
+      "pel_i_edad_minima": 20,
+      "pel_t_sinopsis":"En Sin Tiempo Para Morir, Bond ha dejado el servicio activo y disfruta de una vida tranquila en Jamaica. Su paz es efímera cuando su viejo amigo Félix Leiter de la CIA aparece pidiendo ayuda. La misión de rescatar a un científico secuestrado resulta ser mucho más traicionera de lo esperado, llevando a Bond a la pista de un misterioso villano armado con nueva tecnología peligrosa.",
+      "pel_v_director":"Cary Joji Fukunaga",
+      "pel_v_pais_origen":"United Kingdom, United States of America",
+      "actores":[
+        {
+          "act_v_nombre": "James",
+          "act_v_apellido": "Bond"
+        },
+        {
+          "act_v_nombre": "Cgristen",
+          "act_v_apellido": "Achus"
+
+        },
+        {
+          "act_v_nombre": "Bryant",
+          "act_v_apellido": "El de Ciencias"
+        }
+      ],
+      "generos": [
+        {
+          "gen_v_nombre": "Miedo"
+        },
+        {
+          "gen_v_nombre": "Terror"
+        },
+        {
+          "gen_v_nombre": "Acción"
+        }
+      ]
+    }
+  ]
+}
