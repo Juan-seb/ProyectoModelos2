@@ -10,33 +10,26 @@ const StylesCartelera = styled.section`
 
 `;
 
-const Cartelera = () => {
-    
+const Cartelera = ({ history }) => {
+
     let { city } = useParams();
 
-    const {inTheaters, loader, error} = useRequest(city, "cartelera");
+    const { inTheaters, loader, error } = useRequest(city, "cartelera");
 
     return (
         <StylesCartelera>
             {loader && <Loader />}
             {inTheaters ? inTheaters.data.map((el, index) => (
-                <CardMovie key={index}
-                    id = {el.pel_i_id}
-                    title={el.pel_v_titulo}
-                    img={el.pel_v_ruta_imagen}
-                    duration={el.pel_i_duracion}
-                    premiere={el.pel_d_estreno}
-                    miniumAge={el.pel_i_edad_minima}
-                    genres={el.fk_gen_id}
-                />
+                <CardMovie key={index} el={el} history={history} />
+
             ))
-                : error ? (<p style={{
-                    textAlign: "center"
-                }}>{error}</p>)
-                    :
-                    (<p style={{
-                        textAlign: "center"
-                    }}>Cargando</p>)}
+            : error ? (<p style={{
+                textAlign: "center"
+            }}>{error}</p>)
+                :
+            (<p style={{
+                textAlign: "center"
+            }}>Cargando</p>)}
         </StylesCartelera>
     )
 }

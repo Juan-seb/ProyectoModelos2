@@ -4,7 +4,7 @@ import './styles/Loader.css';
 const Loader = () => {
     return (
         <div style = {{
-            width: "15%",
+            width: "89px",
             margin: "auto",
         }} className="Loader">   
             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>

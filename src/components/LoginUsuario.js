@@ -61,7 +61,7 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
 
     const toRegister = () => {
         handleChange();
-        history.push({ pathname: `${pathname.split('/')[1]}/register` });
+        window.location.href = `http://localhost:3000/#/${pathname.split('/')[1]}/register`
     }
 
     const closeSession = () => {

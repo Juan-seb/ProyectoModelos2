@@ -9,7 +9,7 @@ const HeaderStyles = styled.header`
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 0;
+        z-index: 20;
         background-color: rgba(0,0,0,.85);
         @media (min-width: 768px){
             display: none;

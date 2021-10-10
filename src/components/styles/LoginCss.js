@@ -6,7 +6,7 @@ const LoginStyles = styled.section`
         width: 100vw;
         height: 100vh;
         top: 0;
-        position: absolute;
+        position: fixed;
         background-color: rgba(0,0,0,.65);
         @media (max-width: 400px) {
             

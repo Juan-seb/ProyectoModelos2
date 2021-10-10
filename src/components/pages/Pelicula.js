@@ -38,18 +38,14 @@ const Pelicula = ({history}) => {
 
 
         }
-
         getMovie();
-
-
     }, [city, id, history])
-
 
     return (
         <Content>
             {loader && <Loader />}
             {dataMovie && <MovieInfoBasic data = {dataMovie}/>}
-            {dataMovie && <Reservartion data = {dataMovie} />}
+            {dataMovie && <Reservartion data = {dataMovie} history = {history} />}
             
         </Content>
     )

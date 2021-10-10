@@ -9,10 +9,7 @@ const Header = ({ setIsOpen }) => {
     let history = useHistory();
     let { pathname } = useLocation();
 
-
-
     const [menuUser, setMenuUser] = useState(false)
-
 
     const handleChange = () => {
         setMenuUser(menuUser ? false : true)

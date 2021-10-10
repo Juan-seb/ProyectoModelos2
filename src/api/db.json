@@ -397,6 +397,41 @@
       "pass": "Hola"
     }
   ],
+  "funciones":[
+    {
+      "id":"10-9",
+      "salas":[
+        {
+          "sal_i_id":1,
+          "cin_v_nombre":"Cine 1",
+          "sal_i_numero":"325",
+          "horarios":[
+            {
+              "hora":"3:15"
+              
+            },
+            {
+              "hora": "16:00"
+            }
+          ]
+        },
+        {
+          "sal_i_id":2,
+          "cin_v_nombre":"Cine 2",
+          "sal_i_numero":"325",
+          "horarios":[
+            {
+              "hora":"3:15"
+              
+            },
+            {
+              "hora": "16:00"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "peliculas": [
     {
       "id":1,

@@ -10,26 +10,17 @@ const StylesReleased = styled.section`
 
 `;
 
-const Estrenos = () => {
+const Estrenos = ({ history }) => {
     let { city } = useParams();
 
-    const {released, loader, error} = useRequest(city, "estrenos");
+    /*Use the hook useRequest for the request to releaseds */
+    const { released, loader, error } = useRequest(city, "estrenos");
 
-    console.log(city,"param");
-    console.log(released);
     return (
         <StylesReleased>
             {loader && <Loader />}
             {released ? released.data.map((el, index) => (
-                <CardMovie key={index}
-                    id = {el.pel_i_id}
-                    title={el.pel_v_titulo}
-                    img={el.pel_v_ruta_imagen}
-                    duration={el.pel_i_duracion}
-                    premiere={el.pel_d_estreno}
-                    miniumAge={el.pel_i_edad_minima}
-                    genres={el.fk_gen_id}
-                />
+                <CardMovie key={index} el={el} history={history} />
             ))
                 : error ? (<p style={{
                     textAlign: "center"
