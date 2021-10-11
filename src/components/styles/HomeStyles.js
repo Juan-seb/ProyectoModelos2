@@ -4,6 +4,17 @@ const StylesSection = styled.section `
     width: 100%;
     margin: auto;
     margin-bottom: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 769px) {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
 `;
 
 const MostViewed = styled.section`
@@ -36,8 +47,9 @@ const BtnGoTo = styled.button`
         color: white;
     }
 
-    &>a{
+    & a{
         text-decoration: none;
+        color: black;
     }
 
 `;

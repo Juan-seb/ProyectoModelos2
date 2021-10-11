@@ -15,6 +15,11 @@ const SearchBarStyles = styled.div`
         justify-content: flex-end;
         margin-right: 5px;
     }
+
+    @media (min-width: 1024px){
+        display: none;
+    }
+    
 `;
 
 const InputSearch = styled.input`
@@ -32,7 +37,7 @@ const InputSearch = styled.input`
 
 const SearchBar = () => {
     return (
-        <SearchBarStyles>
+        <SearchBarStyles className="search_bar">
             <InputSearch type="text" placeholder="Busqueda" />
             <div className="logo">🔎</div>
         </SearchBarStyles>

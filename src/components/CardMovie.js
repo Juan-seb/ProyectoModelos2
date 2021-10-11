@@ -4,10 +4,14 @@ import { TextTwo as Text, Text as Title, Subtitle, StylesTags } from "./styles/G
 const CardStylesContainer = styled.div`
     width: 86.6%;
     height: fit-content;
-    margin: auto;
     margin-top: 1.5rem;
-    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.6);
+    box-shadow: 8px 8px 5px -6px rgba(199,199,199,1);
     cursor: pointer;
+
+    @media (min-width:769px){
+        width: 24%;
+
+    }
 `;
 
 const CardStyles = styled.div`
@@ -17,6 +21,10 @@ const CardStyles = styled.div`
     padding: .5rem;
     border: thin solid rgb(80,25,80);
     border-radius: 5px;
+
+    @media (min-width:768px){
+        flex-direction: column;
+    }
     
 `;
 
@@ -33,6 +41,13 @@ const StylesImage = styled.div`
         border-radius: 5px;
     }
 
+    @media (min-width:768px){
+        &>img{
+            margin-bottom: .5rem;
+        
+        }
+    }
+
 `;
 
 const StylesContent = styled.div`
@@ -43,6 +58,10 @@ const StylesContent = styled.div`
     &>.content-tags{
         display: flex;
         
+    }
+
+    @media (min-width:768px){
+        padding-left: 0;
     }
 
 `;
@@ -70,7 +89,8 @@ const CardMovie = ({ el,history }) => {
                 <StylesContent>
                     <Title style={{
                         margin: "0",
-                        marginBottom: ".5rem"
+                        marginBottom: ".5rem",
+                        fontSize: "1.125rem"
                     }}>
                         <b>{el.pel_v_titulo}</b>
                     </Title>

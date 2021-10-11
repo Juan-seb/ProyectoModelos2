@@ -7,11 +7,16 @@ const BtnUsuarioStyles = styled.div`
         position: absolute;
         background-color: red;
         right: 7%;
-        top: 5;
         z-index: 25;
+
+        @media (min-width:1024px){
+            right: 3%;
+            top: 22%;
+        }
+
     `;
 
-const BtnUsuario = ({handleChange}) => {
+const BtnUsuario = ({ handleChange }) => {
 
     return (
         <BtnUsuarioStyles onClick={handleChange} />

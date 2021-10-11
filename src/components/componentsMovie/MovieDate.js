@@ -84,6 +84,11 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
 
     }, [date]);
 
+    /* useEffect(() => {
+        if(window.localStorage.getItem("data")){
+            setPhase(1);
+        }
+    }, [openLogin]) */
 
     const visibilityCalendar = () => {
         setIsOpen(isOpen ? false : true);
@@ -131,7 +136,6 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
     }
 
     const handleChange = () => {
-
         setOpenLogin(openLogin ? false : true)
     }
 

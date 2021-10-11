@@ -8,6 +8,13 @@ const StylesReleased = styled.section`
     width: 100%;
     margin: 2rem auto;
 
+    @media (min-width:769px){
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
 `;
 
 const Estrenos = ({ history }) => {
@@ -23,11 +30,15 @@ const Estrenos = ({ history }) => {
                 <CardMovie key={index} el={el} history={history} />
             ))
                 : error ? (<p style={{
-                    textAlign: "center"
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center"
                 }}>{error}</p>)
                     :
                     (<p style={{
-                        textAlign: "center"
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "center"
                     }}>Cargando</p>)}
         </StylesReleased>
     )

@@ -10,7 +10,10 @@ const MovieContainer = styled.div`
 
     @media (min-width: 768px){
         background-image: url("${props => props.imgBanner}");
-        
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 47vh;
+        margin-bottom: 2rem;
     }
 
 `;
@@ -35,15 +38,13 @@ const MovieImage = styled.div`
 
 const MovieInfo = styled.div`
     width: 86.6%;
-    margin: 0 auto;
     display: flex;
     height: auto;
-    margin-top: 2rem;
+    margin: .5rem auto;
 
     @media (min-width: 768px){
         width: 60%;
         color: white;
-
     }
 `;
 
@@ -60,12 +61,24 @@ const StylesImage = styled.div`
         object-fit: cover;
     }
 
+    @media (min-width: 768px){
+        max-width:40%;
+        height: 100%;
+    }
+    
+
 `;
 
 const StylesContent = styled.div`
     display: flex;
     flex-direction: column;
     padding-left: 1rem;
+    
+    @media (min-width: 768px){
+        margin-top: 10rem;
+
+    }
+
 `;
 
 

@@ -11,12 +11,23 @@ const Text = styled.p`
     font-size: 1.125rem;
     margin: 0 auto;
     margin-top: 1rem;
+
+    @media (min-width:769px){
+        width: 89%;
+        font-size: 1.4rem;
+        margin-bottom: .5rem;
+    }
 `;
 
 const TextTwo = styled.p`
     font-size: 0.875rem;
     margin: 0;
     margin-top: .3rem;
+
+    @media (min-width:769px){
+        margin-top: 0;
+        font-size: 1.1rem;
+    }
 `;
 
 

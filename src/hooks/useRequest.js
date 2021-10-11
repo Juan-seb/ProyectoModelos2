@@ -12,7 +12,11 @@ export const useRequest = (city, type) => {
     useEffect(() => {
 
         const request = helpHttp();
-
+        setInTheaters(null);
+        setReleased(null);
+        setMostWatch(null);
+        setLoader(null);
+        setError(null);
 
         //pelicula_id
 

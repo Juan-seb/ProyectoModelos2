@@ -11,7 +11,8 @@ const HeaderStyles = styled.header`
         align-items: center;
         z-index: 20;
         background-color: rgba(0,0,0,.85);
-        @media (min-width: 768px){
+
+        @media (min-width: 1024px){
             display: none;
         }
 

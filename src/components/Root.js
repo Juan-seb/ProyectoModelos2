@@ -11,6 +11,7 @@ import Estrenos from "./pages/Estrenos";
 import Pelicula from "./pages/Pelicula";
 import Header from "./Header";
 import Menu from "./Menu";
+import MenuPc from "./MenuPc";
 
 const Root = () => {
 
@@ -18,16 +19,19 @@ const Root = () => {
 
     return (
         <HashRouter>
+            <MenuPc />
             <Header setIsOpen={setIsOpen} />
             <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/:city/register" component={Register} />
                 <Route exact path="/:city" component={Home} />
+                <Route exact path="/:city/register" component={Register} />
                 <Route exact path="/:city/cartelera" component={Cartelera} />
                 <Route exact path="/:city/estrenos" component={Estrenos} />
                 <Route exact path="/:city/pelicula/:id" component={Pelicula} />
-
+                <Route exact path="*" >
+                    Error
+                </Route>
             </Switch>
         </HashRouter>
     )

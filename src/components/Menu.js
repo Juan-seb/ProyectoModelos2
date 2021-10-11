@@ -14,6 +14,10 @@ const MenuContainer = styled.div`
     transform: translateX(-100%); 
     padding: 1rem 1rem;
 
+    @media (min-width: 1024px){
+        display: none;
+    }
+
 `;
 
 const MenuStyles = styled.div`

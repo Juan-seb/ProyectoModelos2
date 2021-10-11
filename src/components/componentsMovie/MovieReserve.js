@@ -30,7 +30,6 @@ const MovieReserve = ({ history }) => {
             {phase === 0 && <MovieDate history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
             {phase === 1 && <MoviePayment history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
             {phase === 2 && <MovieChairs history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
-
         </MovieReserveStyles>
     )
 }

@@ -12,6 +12,10 @@ const LoginStyles = styled.section`
             
         }
 
+        @media (min-width: 1024px) {
+            left: 0;
+        }
+
         &>.loader{
             border-color: white;
         }

@@ -40,17 +40,17 @@ const HomeProvider = ({history}) => {
 
     return (
         <section>
-            <SubtitleButton onClick={changeDisplay}>Estas ubicado en: <b>{chosenCity ? chosenCity[0].ciu_v_nombre : "Cargando ubicacion"}</b></SubtitleButton>
-            <MenuCities />
-            <SearcBar />
             {/*Mas vistos */}
             <MostViewed>
                 {true && <Loader />}
                 {
 
                 }
+            <SearcBar />
             </MostViewed>
-            <Text><b>Cartelera:</b></Text>
+            <SubtitleButton onClick={changeDisplay}>Estas ubicado en: <b>{chosenCity ? chosenCity[0].ciu_v_nombre : "Cargando ubicacion"}</b></SubtitleButton>
+            <MenuCities />
+            <Text ><b>Cartelera:</b></Text>
             <StylesSection>
                 {loader && <Loader />}
                 {inTheaters ? inTheaters.data.map((el, index) => (
@@ -58,15 +58,20 @@ const HomeProvider = ({history}) => {
                     <CardMovie key={index} el = {el} history={history}/>
                 ))
                     : error ? (<p style={{
-                        textAlign: "center"
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "center"
                     }}>{error}</p>)
                         :
                         (<p style={{
-                            textAlign: "center"
+                            display: "flex",
+                            width: "100%",
+                            justifyContent: "center"
                         }}>Cargando</p>)}
                 {
                     <div style={{
                         display: "flex",
+                        width: "100%",
                         justifyContent: "center"
                     }}>
                         <BtnGoTo>
@@ -75,7 +80,7 @@ const HomeProvider = ({history}) => {
                     </div>
                 }
             </StylesSection>
-            <Text><b>Estrenos:</b></Text>
+            <Text ><b>Estrenos:</b></Text>
             <StylesSection>
                 {loader && <Loader />}
                 {released ? released.data.map((el, index) => (
@@ -83,11 +88,14 @@ const HomeProvider = ({history}) => {
                     <CardMovie key={index} el = {el} history={history}/>  
                 ))
                     : <p style={{
-                        textAlign: "center"
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "center"
                     }}>Cargando</p>}
                 {
                     <div style={{
                         display: "flex",
+                        width: "100%",
                         justifyContent: "center"
                     }}>
                         <BtnGoTo>

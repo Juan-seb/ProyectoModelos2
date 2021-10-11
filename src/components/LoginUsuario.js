@@ -14,7 +14,7 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
 
     const [dataUser, setDataUser] = useState(initialValue)
     const [error, setError] = useState(null);
-    const [login, setLogin] = useState(true)
+    const [login, setLogin] = useState(true);
     const [loader, setLoader] = useState(null);
     const [data, setData] = useState(null);
     const request = helpHttp();
@@ -37,10 +37,16 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
             request.get(url)
                 .then(res => {
                     if (!res.err) {
-                        let data = JSON.stringify(res);
-                        window.localStorage.setItem("data", data);
-                        handleChange();
-                        setError(false);
+                        let dataRequest = JSON.stringify(res);
+
+                        setData(res);
+                        window.localStorage.setItem("data", dataRequest);
+
+                        setLoader(false);
+                        setTimeout(() => {
+                            handleChange();
+                            setError(false);
+                        }, 2000);
                     } else {
                         setError(res);
                     }
@@ -74,26 +80,15 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
     const stopAction = (e) => e.stopPropagation();
 
     useEffect(() => {
-
-        if (!error) {
-            let data = window.localStorage.getItem("data");
-
-            if (data) {
-                setLoader(false);
-                setData(JSON.parse(data));
-                handleChange();
-            }
-        }
-
-    }, [error])
-
-    useEffect(() => {
         if (window.localStorage.getItem("data")) {
-            console.log("Entra")
-            setLogin(false)
-            
+            setLogin(false);
+            setData(JSON.parse(window.localStorage.getItem("data")))
+        }else{
+            setLogin(true);
+            setData(null);
         }
-    }, [])
+        
+    }, [menuUser])
 
     return (
         <LoginStyles onClick={handleChange} menuUser={menuUser}>
