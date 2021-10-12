@@ -11,6 +11,12 @@ const MovieInfoReserve = styled.div`
         flex-direction: row;
     }
 
+    @media (min-width:1366px){
+        
+        width: 1280px;
+        margin: auto;
+    }
+
 `;
 
 const MovieMoreInfo = styled.div`
@@ -21,10 +27,11 @@ const MovieMoreInfo = styled.div`
 
     @media (min-width:769px){
         display: block;
-        padding: 0;
-        padding-left: 1rem;
+        padding: 0 1rem;
         width: 50%;
     }
+
+    
 `;
 
 const Icon = styled.span`
@@ -75,11 +82,17 @@ const BtnOpen = styled.button`
 
 `;
 
-const Reservartion = ({id, data, history }) => {
+const Reservartion = ({ id, data, history }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const refInfo = useRef(null);
     const refBtn = useRef(null);
+
+    let actors = "";
+
+    data.actores && data.actores.forEach(el => {
+        actors += `${el.act_v_nombre} ${el.act_v_apellido}, `
+    });
 
     const hiddenMenu = () => {
         setIsOpen(isOpen ? false : true);
@@ -95,7 +108,7 @@ const Reservartion = ({id, data, history }) => {
             refBtn.current.querySelector("svg").classList.remove("open");
         }
     }, [isOpen]);
-
+    console.log(data)
     return (
         <MovieInfoReserve>
             <BtnOpen ref={refBtn} onClick={hiddenMenu} /*HTML element */>
@@ -107,7 +120,57 @@ const Reservartion = ({id, data, history }) => {
                 </Icon>
             </BtnOpen>
             <MovieMoreInfo ref={refInfo} /*HTML element */>
-                Hola amigos como estan
+                <h3 style={{
+                    margin: "0"
+                }}>
+                    Sinopsis:
+                </h3>
+                <p style={{
+                    fontSize: "1rem",
+                    margin: "0"
+                }}>
+                    {data.pel_t_sinopsis}
+                </p>
+                
+                <h3 style={{
+                    margin: "0",
+                    marginTop: ".8rem"
+                }}>
+                    Director:
+                </h3>
+                <p style={{
+                    fontSize: "1rem",
+                    margin: "0"
+                }}>
+                    {data.pel_v_director}
+                </p>
+
+                <h3 style={{
+                    margin: "0",
+                    marginTop: ".8rem"
+                }}>
+                    Pais de origen:
+                </h3>
+                <p style={{
+                    fontSize: "1rem",
+                    margin: "0"
+                }}>
+                    {data.pel_v_pais_origen}
+                </p>
+
+                <h3 style={{
+                    margin: "0",
+                    marginTop: ".8rem"
+                }}>
+                    Actores:
+                </h3>
+                <p style={{
+                    fontSize: "1rem",
+                    margin: "0"
+                }}>
+                    {actors + "."}
+                </p>
+
             </MovieMoreInfo>
             <MovieReserve id={id} history={history} />
         </MovieInfoReserve>

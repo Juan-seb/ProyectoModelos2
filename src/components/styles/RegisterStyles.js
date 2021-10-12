@@ -37,6 +37,16 @@ const StylesInput = styled.div`
         width: 100%;
     }
 
+    @media (min-width:769px){
+        & label{
+            font-size: 1rem;
+        }
+        & input{
+            width: 100%;
+            font-size: 1.125rem !important;
+        }
+    }
+
 
 `;
 
@@ -119,4 +129,22 @@ const SelectContainer = styled.div`
     }
 `;
 
-export { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit,SelectContainer }
+const StylesSuccessMessage = styled.h3`
+    width: 100%;
+
+    background-color: rgb(137, 255, 77);
+    font-size: 1.125;
+    text-align: center;
+    padding: 1rem;
+`;
+
+export { 
+    StylesRegister, 
+    StylesForm, 
+    StylesInput, 
+    StylesPass, 
+    StylesDateCity, 
+    StylesButtonSubmit,
+    SelectContainer,
+    StylesSuccessMessage
+}

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom"
 import styled from "styled-components"
 import BtnUsuario from "./BtnUsuario";
 import LoginUsuario from "./LoginUsuario";
+import logo from "../assets/logoCinema.png"
 
 const MenuContainer = styled.div`
     width: 100%;
@@ -36,6 +37,9 @@ const MenuStyles = styled.div`
         align-items: center;
         margin-bottom: 1rem;
         
+        &>.logo{
+            background-image: url(${logo});
+        }
     
     }
 

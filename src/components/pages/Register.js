@@ -1,21 +1,55 @@
-import { useContext, useReducer, useRef } from "react";
+import { useContext, useReducer, useRef, useState } from "react";
 import { formInitialState, formReducer } from "../../reducers/formReducer";
 import { Title, Input } from "../styles/GeneralStyles";
 import { TYPES } from "../../actions/formActions";
 import { helpHttp } from "../../helpers/helpHTTP"
-import { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit, SelectContainer } from "../styles/RegisterStyles"
+import {
+    StylesRegister,
+    StylesForm,
+    StylesInput,
+    StylesPass,
+    StylesDateCity,
+    StylesButtonSubmit,
+    SelectContainer,
+    StylesSuccessMessage,
+
+} from "../styles/RegisterStyles"
 import ErrorRegister from "../ErrorRegister";
 import CityContext from "../../context/CityContext";
+import { useLocation, useParams } from "react-router";
+
+const formInitial = {
+    initialValueRegister: {
+        cli_i_cedula: "",
+        cli_v_nombre: "",
+        usr_v_correo: "",
+        usr_v_pass: "",
+        confirm_pass: "",
+        cli_d_fecha_nacimiento: "",
+        cli_fk_ciu_i: "",
+    },
+    initialError: {
+        error_nombre: null,
+        error_cedula: null,
+        error_correo: null,
+        error_pass: null,
+        error_confirm: null,
+        error_fecha: null,
+    }
+}
 
 const Register = () => {
 
+    const [successMessage, setSuccessMessage] = useState(false);
     const [state, dispatch] = useReducer(formReducer, formInitialState)
     const { initialValueRegister, initialError } = state;
     const pass = useRef(null);
     const request = helpHttp();
     const { allCities } = useContext(CityContext);
+    let { pathname } = useLocation();
 
     const handleSubmitRegister = (e) => {
+
         e.preventDefault();
 
         const data = Object.assign({}, initialValueRegister);
@@ -24,7 +58,7 @@ const Register = () => {
         delete data.confirm_pass;
         console.log(JSON.stringify(data))
         for (const key in initialError) {
-            
+
             if (!(initialError[key] === "")) {
                 console.log("Error")
                 return;
@@ -36,11 +70,15 @@ const Register = () => {
             headers: {
                 "Content-Type": "application/json"
             },
-            cache: 'no-cache', 
+            cache: 'no-cache',
             body: data
         }).then(res => {
             if (!res.err) {
-                console.log(res);
+                dispatch({ type: TYPES.CLEAR_FORM })
+                setSuccessMessage(true);
+                setTimeout(() => {
+                    window.location.href = `http://localhost:3000/#/${pathname.split('/')[1]}`
+                }, 2000);
             }
         });
 
@@ -55,31 +93,31 @@ const Register = () => {
     }
 
     const handleChangeName = (e) => {
-        dispatch({ type: TYPES.VALIDATE_NAME, payload: e })
+        dispatch({ type: TYPES.VALIDATE_NAME, payload: e });
     }
 
     const handleChangeCedula = (e) => {
-        dispatch({ type: TYPES.VALIDATE_CEDULA, payload: e })
+        dispatch({ type: TYPES.VALIDATE_CEDULA, payload: e });
     }
 
     const handleChangeEmail = (e) => {
-        dispatch({ type: TYPES.VALIDATE_CORREO, payload: e })
+        dispatch({ type: TYPES.VALIDATE_CORREO, payload: e });
     }
 
     const handleChangePass = (e) => {
-        dispatch({ type: TYPES.VALIDATE_PASS, payload: e })
+        dispatch({ type: TYPES.VALIDATE_PASS, payload: e });
     }
 
     const handleConfirmPass = (e) => {
-        dispatch({ type: TYPES.CONFIRM_PASS, payload: e })
+        dispatch({ type: TYPES.CONFIRM_PASS, payload: e });
     }
 
     const handleData = (e) => {
-        dispatch({ type: TYPES.VALIDATE_FECHA, payload: e })
+        dispatch({ type: TYPES.VALIDATE_FECHA, payload: e });
     }
 
     const changeCity = (e) => {
-        dispatch({ type: TYPES.VALIDATE_CIUDAD, payload: e })
+        dispatch({ type: TYPES.VALIDATE_CIUDAD, payload: e });
     }
 
     return (
@@ -211,6 +249,11 @@ const Register = () => {
                 </StylesDateCity>
                 <StylesButtonSubmit>Enviar</StylesButtonSubmit>
             </StylesForm>
+            {successMessage &&
+                <StylesSuccessMessage>
+                    Registro creado correctamente, redirigiendo a Home
+                </StylesSuccessMessage>
+            }
         </StylesRegister>
     )
 }

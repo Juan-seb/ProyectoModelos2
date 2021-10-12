@@ -19,7 +19,7 @@ import LoginUsuario from "../LoginUsuario"
 import 'react-calendar/dist/Calendar.css';
 import Loader from "../Loader";
 
-const MovieDate = ({ history, setPhase, useDataToReserve }) => {
+const MovieDate = ({ history, setPhase, setDataToReserve, dataToReserve }) => {
 
     let { city, id } = useParams();
     const [date, setDate] = useState(new Date());
@@ -75,9 +75,13 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
                 .then(res => {
 
                     const salas = {}
-                    console.log(res);
-                    if (!res.err) {
+                    console.log(typeof res);
 
+                    if (res === "DOMException: The user aborted a request.") {
+                        return
+                    }
+                    if (!res.err) {
+                        console.log(res)
                         res.data.forEach(el => {
                             salas[el.cin_v_nombre.replace(/ /g, "-")] = false;
                         });
@@ -144,6 +148,10 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
     const setInfo = (e) => {
 
         if (window.localStorage.getItem("data")) {
+            setDataToReserve({
+                ...dataToReserve,
+                fun_i_id: e.target.getAttribute("data-id")
+            })
             setPhase(1);
         } else {
             setOpenLogin(true);
@@ -152,7 +160,7 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
     }
 
     const handleChange = () => {
-        setOpenLogin(openLogin ? false : true)
+        setOpenLogin(openLogin ? false : true);
     }
 
     /*All of the green tags are HTML tags except for Calendar and Collapse */
@@ -202,7 +210,11 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
                             <ContainerHours>
                                 {
                                     el.horarios.map((element, i) => (
-                                        <Hours key={i} data-id={el.sal_i_id} onClick={setInfo}>{convertTime(element.hora)}</Hours>
+                                        <Hours key={i}
+                                            data-id={element.fun_i_id}
+                                            data-sala={element.sal_i_numero}
+                                            onClick={setInfo}
+                                        >{convertTime(element.hora)}</Hours>
                                     ))
                                 }
                             </ContainerHours>

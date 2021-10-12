@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import { helpHttp } from "../../helpers/helpHTTP"
 import Loader from "../Loader";

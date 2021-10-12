@@ -4,6 +4,10 @@ const Title = styled.p`
     font-size: 1.25rem;
     margin: .2rem auto;
     text-align: center;
+
+    @media (min-width:769px){
+        font-size: 1.35rem;
+    }
 `;
 
 const Text = styled.p`

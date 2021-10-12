@@ -6,13 +6,11 @@ import MovieChairs from "./MovieChairs";
 
 const valuesToReserve = {
 
-    sal_i_id: "",
+    fun_i_id: "",
     tipoPago: "",
-    num_sillas_general:null,
+    num_sillas_general: null,
     num_sillas_preferencial: null,
-    sillas_general: [],
-    sillas_preferencial: [],
-    
+    res_t_sillas: [],
 }
 
 const MovieReserveStyles = styled.div`
@@ -22,14 +20,37 @@ const MovieReserveStyles = styled.div`
 
 const MovieReserve = ({ id, history }) => {
 
-    const [phase, setPhase] = useState(2);
+    const [phase, setPhase] = useState(0);
     const [dataToReserve, setDataToReserve] = useState(valuesToReserve);
 
     return (
         <MovieReserveStyles>
-            {phase === 0 && <MovieDate id = {id} history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
-            {phase === 1 && <MoviePayment history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
-            {phase === 2 && <MovieChairs history={history} setPhase={setPhase} setDataToReserve={setDataToReserve}/>}
+            {phase === 0 &&
+                <MovieDate
+                    id={id}
+                    history={history}
+                    setPhase={setPhase}
+                    setDataToReserve={setDataToReserve}
+                    dataToReserve={dataToReserve}
+                />
+            }
+            {phase === 1 &&
+                <MoviePayment
+                    history={history}
+                    setPhase={setPhase}
+                    setDataToReserve={setDataToReserve}
+                    dataToReserve={dataToReserve}
+                />
+            }
+            {phase === 2 &&
+                <MovieChairs
+                    history={history}
+                    setPhase={setPhase}
+                    setDataToReserve={setDataToReserve}
+                    dataToReserve={dataToReserve}
+                />
+
+            }
         </MovieReserveStyles>
     )
 }
