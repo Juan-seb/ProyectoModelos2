@@ -1,4 +1,3 @@
-import { Text as Title, TextTwo as Text } from "./styles/GeneralStyles"
 import styled from "styled-components"
 
 const MovieContainer = styled.div`
@@ -12,7 +11,8 @@ const MovieContainer = styled.div`
         background-image: url("${props => props.imgBanner}");
         background-repeat: no-repeat;
         background-size: cover;
-        height: 47vh;
+        height: fit-content;
+        padding: 1.85rem 3vw;
         margin-bottom: 2rem;
     }
 
@@ -29,11 +29,18 @@ const MovieImage = styled.div`
         height: auto;
         display: block;
         object-fit: cover;
+
+        @media (min-width: 401px){
+            height: 400px;
+        }
+    
     }
     
     @media (min-width: 769px){
         display: none;
     }
+
+
 `;
 
 const MovieInfo = styled.div`
@@ -43,14 +50,15 @@ const MovieInfo = styled.div`
     margin: .5rem auto;
 
     @media (min-width: 768px){
-        width: 60%;
+        width: 100%;
         color: white;
+        margin: 0;
+        height: 281px;
     }
 `;
 
 const StylesImage = styled.div`
     max-width:30%;
-    height: 100%;
 
     &>img{
         width:100%;
@@ -59,11 +67,17 @@ const StylesImage = styled.div`
         display: block;
         border-radius: 5px;
         object-fit: cover;
+
+        @media (min-width: 768px){
+            max-width:200px;
+            transform: scale(1.2);
+            
+        }
     }
 
     @media (min-width: 768px){
-        max-width:40%;
-        height: 100%;
+        width: 250px;
+        height: 30vh;
     }
     
 
@@ -74,11 +88,32 @@ const StylesContent = styled.div`
     flex-direction: column;
     padding-left: 1rem;
     
-    @media (min-width: 768px){
-        margin-top: 10rem;
-
+    @media (min-width: 769px){
+        margin-top: 9rem;
+        width: 80%;
     }
 
+`;
+
+const TextMovie = styled.p`
+    font-size: 0.875rem;
+    margin: 0;
+    margin-top: .3rem;
+
+    @media (min-width:769px){
+        margin-top: 0;
+        font-size: 1.1rem;
+    }
+`;
+
+const TitleMovie = styled.p`
+    margin: 0;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+
+    @media (min-width:769px){
+        font-size: 1.75rem;
+    }
 `;
 
 
@@ -101,17 +136,13 @@ const MovieInfoBasic = ({ data }) => {
                     <img src={data.pel_v_ruta_imagen} alt={data.pel_v_titulo} />
                 </StylesImage>
                 <StylesContent>
-                    <Title style={{
-                        margin: "0",
-                        marginBottom: ".5rem",
-                        fontSize: "1.2rem"
-                    }}>
+                    <TitleMovie>
                         <b>{data.pel_v_titulo}</b>
-                    </Title>
-                    <Text>Fecha estreno: {data.pel_d_estreno}</Text>
-                    <Text>Generos: {allGenres.slice(0, -1) + "."}</Text>
-                    <Text>Duracion: {data.pel_i_duracion}</Text>
-                    <Text>Recomendado para mayores de {data.pel_i_edad_minima} años</Text>
+                    </TitleMovie>
+                    <TextMovie>Fecha estreno: {data.pel_d_estreno}</TextMovie>
+                    <TextMovie>Generos: {allGenres.slice(0, -1) + "."}</TextMovie>
+                    <TextMovie>Duracion: {data.pel_i_duracion}</TextMovie>
+                    <TextMovie>Recomendado para mayores de {data.pel_i_edad_minima} años</TextMovie>
                 </StylesContent>
             </MovieInfo>
         </MovieContainer>

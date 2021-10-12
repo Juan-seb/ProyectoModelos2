@@ -8,7 +8,7 @@ const MenuCities = () => {
     /* document.body.classList.add("overflow"); */
 
     //Cities that I get of the request in City Context
-    const { allCities, display, setDisplay } = useContext(CityContext)
+    const { allCities, display, setDisplay } = useContext(CityContext);
     const [selectCity, setSelectCity] = useState(1);
 
     let history = useHistory();

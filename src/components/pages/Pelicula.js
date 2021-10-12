@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { helpHttp } from "../../helpers/helpHTTP"
 import Loader from "../Loader";
-import MovieInfoBasic from "../MovieInfoBasic";
+import MovieInfoBasic from "../componentsMovie/MovieInfoBasic";
 import Reservartion from "../Reservartion";
 
 const Content = styled.section`
@@ -45,7 +45,7 @@ const Pelicula = ({history}) => {
         <Content>
             {loader && <Loader />}
             {dataMovie && <MovieInfoBasic data = {dataMovie}/>}
-            {dataMovie && <Reservartion data = {dataMovie} history = {history} />}
+            {dataMovie && <Reservartion id={id} data = {dataMovie} history = {history} />}
             
         </Content>
     )

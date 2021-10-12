@@ -13,7 +13,12 @@ const StylesSection = styled.section `
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        flex-direction: row;
         margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 1366px) {
+        width: 1230px;
     }
 `;
 

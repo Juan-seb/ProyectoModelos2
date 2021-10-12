@@ -13,9 +13,13 @@ const Text = styled.p`
     margin-top: 1rem;
 
     @media (min-width:769px){
-        width: 89%;
+        width: 90%;
         font-size: 1.4rem;
         margin-bottom: .5rem;
+    }
+
+    @media (min-width:1366px){
+        width: 1230px;
     }
 `;
 
@@ -26,7 +30,7 @@ const TextTwo = styled.p`
 
     @media (min-width:769px){
         margin-top: 0;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 `;
 

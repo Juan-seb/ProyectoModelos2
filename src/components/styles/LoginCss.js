@@ -8,8 +8,8 @@ const LoginStyles = styled.section`
         top: 0;
         position: fixed;
         background-color: rgba(0,0,0,.65);
-        @media (max-width: 400px) {
-            
+        @media (min-width: 769px) {
+            left:0;
         }
 
         @media (min-width: 1024px) {
@@ -77,6 +77,23 @@ const LoginForm = styled.div`
         & button:hover{
             background-color: rgb(190,85,190);
             color: white;
+        }
+
+        
+        
+
+        @media (min-width:769px){
+            width: 400px;
+            margin: 4.5rem 0;
+            margin-right: 7.85vw;
+            margin-left: auto;
+        }
+
+        @media (min-width:1024px){
+            width: 400px;
+            margin: 4.5rem 0;
+            margin-right: 3vw;
+            margin-left: auto;
         }
     `;
 

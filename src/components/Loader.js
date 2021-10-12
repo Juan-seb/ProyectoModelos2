@@ -4,8 +4,10 @@ import './styles/Loader.css';
 const Loader = () => {
     return (
         <div style = {{
-            width: "89px",
-            margin: "auto",
+            width: "100%",
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "center"
         }} className="Loader">   
             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div>

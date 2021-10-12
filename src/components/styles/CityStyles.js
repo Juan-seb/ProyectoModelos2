@@ -24,6 +24,10 @@ const StyledChooseContainer = styled.div`
     background-color: white;
     width: 86.6%;
 
+    @media (min-width:769px){
+        width: 300px;
+    }
+
     &>.title{
         font-size: 1.2rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

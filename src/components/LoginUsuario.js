@@ -21,7 +21,8 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
 
     let history = useHistory();
     let { pathname } = useLocation();
-    let url = `http://localhost:4000/usuarios/1`
+    //let url = `http://localhost:4000/usuarios/1`
+    let url = `http://localhost:5000/cliente/login`
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +35,13 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
         const getData = async () => {
             setLoader(true);
             setLogin(false)
-            request.get(url)
+            request.post(url, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                cache: 'no-cache',
+                body: dataUser
+            })
                 .then(res => {
                     if (!res.err) {
                         let dataRequest = JSON.stringify(res);
@@ -83,11 +90,11 @@ const LoginUsuario = ({ menuUser, handleChange }) => {
         if (window.localStorage.getItem("data")) {
             setLogin(false);
             setData(JSON.parse(window.localStorage.getItem("data")))
-        }else{
+        } else {
             setLogin(true);
             setData(null);
         }
-        
+
     }, [menuUser])
 
     return (

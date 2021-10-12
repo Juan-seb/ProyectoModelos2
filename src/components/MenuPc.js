@@ -11,13 +11,14 @@ const MenuContainer = styled.div`
     top: 0;
     position: sticky;
     background-color: rgba(0,0,0,.95);
-    z-index: 40;
+    z-index: unset;
     padding: 1rem 3rem;
     display: none;
 
     @media (min-width: 1024px){
         display: flex;
         align-items: center;
+        z-index:20;
     }
 
 `;

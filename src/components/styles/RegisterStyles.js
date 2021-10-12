@@ -5,6 +5,14 @@ const StylesRegister = styled.section`
     margin: auto;
     margin-top: 1rem;
 
+    @media (min-width: 645px) {
+        width: 65%;
+    }
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+
 `;
 
 const StylesForm = styled.form`
@@ -89,4 +97,26 @@ const StylesButtonSubmit = styled.button`
 
 `;
 
-export { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit }
+const SelectContainer = styled.div`
+    width: 100%;
+    
+
+    & label{
+        margin-bottom: .2rem;
+        display: block;
+        font-size: 0.875rem;
+    }
+
+    & select{
+        border-radius: 10px !important;
+        width: 100%;
+        padding: .7rem .4rem;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        border-radius: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+    }
+`;
+
+export { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit,SelectContainer }

@@ -1,10 +1,11 @@
-import { useReducer, useRef } from "react";
+import { useContext, useReducer, useRef } from "react";
 import { formInitialState, formReducer } from "../../reducers/formReducer";
 import { Title, Input } from "../styles/GeneralStyles";
 import { TYPES } from "../../actions/formActions";
 import { helpHttp } from "../../helpers/helpHTTP"
-import { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit } from "../styles/RegisterStyles"
+import { StylesRegister, StylesForm, StylesInput, StylesPass, StylesDateCity, StylesButtonSubmit, SelectContainer } from "../styles/RegisterStyles"
 import ErrorRegister from "../ErrorRegister";
+import CityContext from "../../context/CityContext";
 
 const Register = () => {
 
@@ -12,15 +13,36 @@ const Register = () => {
     const { initialValueRegister, initialError } = state;
     const pass = useRef(null);
     const request = helpHttp();
+    const { allCities } = useContext(CityContext);
 
     const handleSubmitRegister = (e) => {
         e.preventDefault();
 
         const data = Object.assign({}, initialValueRegister);
+        let url = `http://localhost:5000/cliente/registrar`
 
+        delete data.confirm_pass;
+        console.log(JSON.stringify(data))
+        for (const key in initialError) {
+            
+            if (!(initialError[key] === "")) {
+                console.log("Error")
+                return;
 
+            }
+        }
 
-
+        request.post(url, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            cache: 'no-cache', 
+            body: data
+        }).then(res => {
+            if (!res.err) {
+                console.log(res);
+            }
+        });
 
     }
 
@@ -56,7 +78,7 @@ const Register = () => {
         dispatch({ type: TYPES.VALIDATE_FECHA, payload: e })
     }
 
-    const handleCity = (e) => {
+    const changeCity = (e) => {
         dispatch({ type: TYPES.VALIDATE_CIUDAD, payload: e })
     }
 
@@ -177,24 +199,15 @@ const Register = () => {
                         <ErrorRegister bgColor="red" message={initialError.error_fecha} /> :
                         ""
                     }
-                    <StylesInput>
-                        <label htmlFor="ciu_v_nombre">Ciudad:</label>
-                        <Input
-                            type="text"
-                            name="ciu_v_nombre"
-                            onChange={handleCity}
-                            value={initialValueRegister.ciu_v_nombre}
-                            placeholder="Ciudad de residencia"
-                        />
-                    </StylesInput>
-                    {initialError.error_ciudad === "" ?
-                        <ErrorRegister bgColor="green" message="Correcto" /> :
-                        ""
-                    }
-                    {initialError.error_ciudad ?
-                        <ErrorRegister bgColor="red" message={initialError.error_ciudad} /> :
-                        ""
-                    }
+                    <SelectContainer>
+                        <label htmlFor="cli_fk_ciu_i">Selecciona tu ciudad:</label>
+                        <select name="cli_fk_ciu_i" className="city_select" onChange={changeCity}>
+                            <option value="1">Bogota esta por defecto</option>
+                            {allCities && allCities.map((el, index) => (
+                                <option value={el.ciu_i_id} key={index}>{el.ciu_v_nombre}</option>
+                            ))}
+                        </select>
+                    </SelectContainer>
                 </StylesDateCity>
                 <StylesButtonSubmit>Enviar</StylesButtonSubmit>
             </StylesForm>

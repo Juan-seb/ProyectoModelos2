@@ -2,14 +2,13 @@ import { TYPES } from "../actions/formActions";
 
 export const formInitialState = {
     initialValueRegister: {
-        id: null,
-        cli_v_nombre: "",
         cli_i_cedula: "",
+        cli_v_nombre: "",
         usr_v_correo: "",
         usr_v_pass: "",
         confirm_pass: "",
         cli_d_fecha_nacimiento: "",
-        ciu_v_nombre: "",
+        cli_fk_ciu_i: "",
     },
     initialError: {
         error_nombre: null,
@@ -18,7 +17,6 @@ export const formInitialState = {
         error_pass: null,
         error_confirm: null,
         error_fecha: null,
-        error_ciudad: null,
     }
 }
 
@@ -140,9 +138,14 @@ export function formReducer(state, action) {
         }
         case TYPES.VALIDATE_CIUDAD: {
             const event = action.payload;
-            let regexCity = /^[a-z ,.'-]+$/i;
 
-            return regexCity.exec(event.target.value) ? returnObj("error_ciudad") : returnError("error_ciudad")
+            return {
+                ...state,
+                initialValueRegister: {
+                    ...state.initialValueRegister,
+                    [event.target.name]: event.target.value
+                }
+            }
         }
         default:
             break;

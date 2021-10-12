@@ -1,15 +1,17 @@
 import { helpHttp } from "../../helpers/helpHTTP";
 import { useEffect, useState } from "react";
 import { Input } from "../styles/GeneralStyles"
-import { Text } from "../styles/GeneralStyles"
-import { ContainerHours, 
-    Hours, 
-    Icon, 
-    StylesBtnCalendar, 
-    StylesCalendar, 
-    StylesDate, 
-    StylesTheater, 
-    TitleTheaters 
+import { useParams } from "react-router-dom";
+import {
+    ContainerHours,
+    Hours,
+    Icon,
+    StylesBtnCalendar,
+    StylesCalendar,
+    StylesDate,
+    StylesTheater,
+    TextFunctions,
+    TitleTheaters
 } from "../styles/MovieDateStyles";
 import Collapse from "@kunukn/react-collapse"
 import Calendar from "react-calendar";
@@ -18,6 +20,8 @@ import 'react-calendar/dist/Calendar.css';
 import Loader from "../Loader";
 
 const MovieDate = ({ history, setPhase, useDataToReserve }) => {
+
+    let { city, id } = useParams();
     const [date, setDate] = useState(new Date());
     const [data, setData] = useState(null);
     const [objCollapse, setObjCollapse] = useState(null);
@@ -30,7 +34,14 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
 
         let day = date.getDate();
         let month = date.getMonth();
-        let url = `http://localhost:4000/funciones/${day}-${month}`
+        //let urlPrueba = `http://localhost:4000/funciones`
+
+        const data = {
+            city,
+            id,
+            day,
+            month: month + 1
+        }
 
         const months = {
             Enero: 0,
@@ -50,18 +61,24 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
         const request = helpHttp();
 
         const getFunction = async () => {
+            let url = "http://localhost:5000/funcion/obtenerCines"
             setLoader(true);
             setData(null);
-            request.get(url)
+
+            request.post(url, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                cache: 'no-cache',
+                body: data
+            })
                 .then(res => {
 
                     const salas = {}
-
+                    console.log(res);
                     if (!res.err) {
 
-                        console.log(res);
-                        res.salas.forEach(el => {
-                            console.log(el);
+                        res.data.forEach(el => {
                             salas[el.cin_v_nombre.replace(/ /g, "-")] = false;
                         });
                         setObjCollapse(salas);
@@ -76,7 +93,6 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
         for (const key in months) {
             if (months[key] === month) {
                 setDateInput(`Funciones: ${day} de ${key}`);
-                console.log(key);
             }
         }
 
@@ -164,7 +180,7 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
             </Collapse>
             {loader && <Loader />}
             {data &&
-                data.salas.map((el, index) => (
+                data.data.map((el, index) => (
                     <div key={index}>
 
                         <StylesTheater onClick={openCollapse} data-theater={el.cin_v_nombre.replace(/ /g, "-")}>
@@ -180,12 +196,9 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
                             </Icon>
                         </StylesTheater>
                         <Collapse isOpen={objCollapse[el.cin_v_nombre.replace(/ /g, "-")]}>
-                            <Text style={{
-                                marginBottom: ".3rem",
-                                width: "90%"
-                            }}>
+                            <TextFunctions >
                                 Funciones:
-                            </Text>
+                            </TextFunctions>
                             <ContainerHours>
                                 {
                                     el.horarios.map((element, i) => (
@@ -197,7 +210,7 @@ const MovieDate = ({ history, setPhase, useDataToReserve }) => {
                     </div>
                 ))
             }
-
+            <hr />
         </StylesDate>
     )
 }

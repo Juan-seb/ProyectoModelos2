@@ -12,6 +12,7 @@ import Pelicula from "./pages/Pelicula";
 import Header from "./Header";
 import Menu from "./Menu";
 import MenuPc from "./MenuPc";
+import { CityProvider } from "../context/CityContext";
 
 const Root = () => {
 
@@ -25,7 +26,11 @@ const Root = () => {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/:city" component={Home} />
-                <Route exact path="/:city/register" component={Register} />
+                <Route exact path="/:city/register">
+                    <CityProvider>
+                        <Register/>
+                    </CityProvider>
+                </Route>
                 <Route exact path="/:city/cartelera" component={Cartelera} />
                 <Route exact path="/:city/estrenos" component={Estrenos} />
                 <Route exact path="/:city/pelicula/:id" component={Pelicula} />

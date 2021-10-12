@@ -3,6 +3,10 @@ import styled from "styled-components";
 const StylesDate = styled.div`
     width: 100%;
     z-index:0;
+
+    @media (min-width:769px){
+        padding: 0 2rem;
+    }
 `;
 
 const StylesCalendar = styled.div`
@@ -86,6 +90,10 @@ const ContainerHours = styled.div`
     border-top: thin solid grey;
     padding: 1rem 0;
     margin: 0 auto;
+
+    @media (min-width:769px){
+        width: 100%;
+    }
 `;
 
 const Hours = styled.div`
@@ -106,6 +114,19 @@ const Hours = styled.div`
     }
 `;
 
+const TextFunctions = styled.p`
+    width: 90%;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    @media (min-width:769px){
+        width: 100%;
+    }
+
+`;
+
+
 export {StylesDate, 
         StylesCalendar, 
         StylesBtnCalendar, 
@@ -113,5 +134,6 @@ export {StylesDate,
         TitleTheaters, 
         Icon, 
         ContainerHours, 
-        Hours
+        Hours,
+        TextFunctions
 }

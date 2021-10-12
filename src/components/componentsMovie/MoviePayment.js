@@ -71,11 +71,11 @@ const MoviePayment = ({ setPhase, setDataToReserve }) => {
 
     return (
         <StylesPayment /*HTML tag */>
-            <StylesOptionsPayment /*HTML tag */>
-                <BtnPaymentMethod>PSE</BtnPaymentMethod>
-                <BtnPaymentMethod>MASTERCARD</BtnPaymentMethod>
-                <BtnPaymentMethod>DEBITO</BtnPaymentMethod>
-            </StylesOptionsPayment>
+            <h3 style={{
+                margin: "0 auto",
+                textAlign: "center",
+                marginBottom: "1rem"
+            }}>Selecciona el numero de boletas</h3>
             <StylesOptionsPayment /*HTML tag */>
                 <p>
                     General:
