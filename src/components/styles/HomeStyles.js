@@ -6,7 +6,7 @@ const StylesSection = styled.section `
     margin-bottom: 2.2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 
     @media (min-width: 769px) {
         width: 90%;

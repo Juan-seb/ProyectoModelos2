@@ -23,7 +23,8 @@ const Pelicula = ({history}) => {
 
         const getMovie = async () => {
             console.log(city);
-            let url = `http://localhost:4000/peliculas/${id}`
+            //let url = `http://localhost:4000/peliculas/${id}`
+            let url = `http://localhost:5000/pelicula/pelicula_id/${id}`
 
             request.get(url)
                 .then(res => {
@@ -44,8 +45,8 @@ const Pelicula = ({history}) => {
     return (
         <Content>
             {loader && <Loader />}
-            {dataMovie && <MovieInfoBasic data = {dataMovie}/>}
-            {dataMovie && <Reservartion id={id} data = {dataMovie} history = {history} />}
+            {dataMovie && <MovieInfoBasic data = {dataMovie.data}/>}
+            {dataMovie && <Reservartion id={id} data = {dataMovie.data} history = {history} />}
             
         </Content>
     )

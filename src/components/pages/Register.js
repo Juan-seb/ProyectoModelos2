@@ -74,7 +74,6 @@ const Register = () => {
             body: data
         }).then(res => {
             if (!res.err) {
-                dispatch({ type: TYPES.CLEAR_FORM })
                 setSuccessMessage(true);
                 setTimeout(() => {
                     window.location.href = `http://localhost:3000/#/${pathname.split('/')[1]}`

@@ -72,6 +72,42 @@ const TextScreen = styled.div`
     margin-bottom: 1.5rem;
 `;
 
+const StylesBtns = styled.div`
+
+    width: 100%px;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+`;
+
+const BtnsReserve = styled.button`
+    width: 100px;
+    height: 45px;
+    background-color: transparent;
+    border: thin solid rgb(80,25,80);
+    border-radius: 4px;
+    margin: 0 1rem;
+    padding: 0 .5rem;
+    transition: background-color .5s;
+    transition: color .5s;
+    font-family: 'Segoe UI';
+    cursor: pointer;
+    font-size: 1rem;
+
+    &:hover{
+        background-color: rgb(190,85,190);
+        color: white;
+    }
+`;
+
+const TitleSelect = styled.p`
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Segoe UI';
+    font-size: 1.2rem;
+`;
+
 const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => {
 
     const [loader, setLoader] = useState(true);
@@ -80,10 +116,11 @@ const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => 
     const [height, setHeight] = useState(0);
     const [numSillasNormal, setNumSillasNormal] = useState(dataToReserve.num_sillas_general);
     const [numSillasPref, setNumSillasPref] = useState(dataToReserve.num_sillas_preferencial);
+    const [textReserve, setTextReserve] = useState(false)
 
     useEffect(() => {
         const request = helpHttp();
-        let url = "http://localhost:4000/sal_t_sillas"
+        let url = `http://localhost:5000//funcion/salaFuncion/${dataToReserve.fun_i_id}`
 
         const getFunctions = async () => {
 
@@ -93,8 +130,8 @@ const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => 
                         console.log(res);
                         setChairs(res);
                         setLoader(false);
-                        setWidth((res[0].length * 48) + 158);
-                        setHeight((res.length * 48) + 168)
+                        setWidth((res.data.sillas[0].length * 48) + 158);
+                        setHeight((res.data.sillas.length * 48) + 168);
                     }
                 })
 
@@ -107,7 +144,7 @@ const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => 
     const createChairs = (x, y) => {
 
         const copyOfChairs = dataToReserve.res_t_sillas;
-        copyOfChairs.push({ x: x - 1, y: y - 1 });
+        copyOfChairs.push({ x: x, y: y });
 
         setDataToReserve({
             ...dataToReserve,
@@ -116,51 +153,171 @@ const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => 
 
     }
 
+    const deleteChairs = (x, y) => {
+
+        const copyOfChairs = dataToReserve.res_t_sillas;
+        const newChairs = copyOfChairs.filter(el => {
+            if ((el.x !== x)) {
+                if ((el.y !== y)) {
+                    return true;
+                }
+            }
+
+            if (el.x !== x) {
+                return true;
+            }
+
+            if ((el.y !== y)) {
+                return true;
+            }
+
+            return false;
+        });
+
+        setDataToReserve({
+            ...dataToReserve,
+            res_t_sillas: newChairs
+        })
+
+    }
+
+    const backSection = () => {
+        setPhase(1);
+    }
+
+    const makeReserve = () => {
+
+        const request = helpHttp();
+        let url = "http://localhost:5000/reserva/crear"
+
+        if (dataToReserve.num_sillas_general > 0) {
+            if (!(dataToReserve.res_t_sillas.length === dataToReserve.num_sillas_general)) {
+                console.log("RETURN")
+                return;
+            }
+        }
+
+        if (dataToReserve.num_sillas_preferencial > 0) {
+            if (!(dataToReserve.res_t_sillas.length === dataToReserve.num_sillas_preferencial)) {
+                console.log("RETURN")
+                return;
+            }
+        }
+
+        let data = {
+            res_t_sillas: JSON.stringify(dataToReserve.res_t_sillas),
+            res_fk_fun_i: dataToReserve.fun_i_id,
+            token: JSON.parse(window.localStorage.getItem("data")).data["auth-token"]
+        }
+        console.log(data)
+
+        const reserve = async () => {
+            request.post(url, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                cache: 'no-cache',
+                body: data
+            }).then(res => {
+                if (!res.err) {
+                    setTextReserve(true);
+                }
+            })
+        }
+
+        reserve();
+
+    }
+
     return (
         <StylesMovieChairs /*HTML tag */>
+            {!textReserve ?
+                <>
+                    <TitleSelect>
+                        Escoge tus asientos
+                    </TitleSelect>
+                    <SelectChairs height={height} /*HTML tag */>
+                        {
+                            loader &&
+                            <StylesLoader>
+                                <Loader />
+                            </StylesLoader>
+                        }
+                        <StylesCinema width={width}>
+                            <TextScreen>
+                                Pantalla
+                            </TextScreen>
+                            {
+                                chairs &&
+                                chairs.data.sillas.map((el, index) => (
+                                    <>
+                                        <PositionChair key={index} y={index + 1} position={false} />
+                                        <>
+                                            {
+                                                el.map((element, i) => (
+                                                    <PositionChair
+                                                        key={i + index}
+                                                        numNormal={numSillasNormal}
+                                                        numPref={numSillasPref}
+                                                        setNumSillasNormal={setNumSillasNormal}
+                                                        setNumSillasPref={setNumSillasPref}
+                                                        createChairs={createChairs}
+                                                        deleteChairs={deleteChairs}
+                                                        row={false}
+                                                        y={index + 1}
+                                                        x={i + 1}
+                                                        state={element}
 
-            <SelectChairs height={height} /*HTML tag */>
-                {
-                    loader &&
-                    <StylesLoader>
-                        <Loader />
-                    </StylesLoader>
-                }
-                <StylesCinema width={width}>
-                    <TextScreen>
-                        Pantalla
-                    </TextScreen>
+                                                    />
+                                                ))
+                                            }
+                                        </>
+
+                                    </>
+                                ))
+                            }
+                        </StylesCinema>
+
+                    </SelectChairs>
+                    <p style = {{
+                        marginLeft :"1rem"
+                    }}>
+                        <h3>Convenciones</h3>
+                        Verde – General <br/>
+                        Naranja - Preferencial <br/>
+                        Azul – Discapacitados <br/>
+                        Roja – No disponible <br/>
+                        Gris – Seleccionado <br/>
+                    </p>
                     {
-                        chairs &&
-                        chairs.map((el, index) => (
-                            <>
-                                <PositionChair key={index} y={index + 1} position={false} />
-                                <>
-                                    {
-                                        el.map((element, i) => (
-                                            <PositionChair
-                                                key={i + index}
-                                                numNormal={numSillasNormal}
-                                                numPref={numSillasPref}
-                                                setNumSillasNormal={setNumSillasNormal}
-                                                setNumSillasPref={setNumSillasPref}
-                                                createChairs={createChairs}
-                                                row={false}
-                                                y={index + 1}
-                                                x={i + 1}
-                                                state={element}
-
-                                            />
-                                        ))
-                                    }
-                                </>
-
-                            </>
-                        ))
+                        numSillasNormal !== 0 ?
+                            <p style = {{
+                                marginLeft :"1rem"
+                            }}>
+                                Aun puedes seleccionar {numSillasNormal} sillas generales
+                            </p> : ""
                     }
-                </StylesCinema>
-
-            </SelectChairs>
+                    {
+                        numSillasPref !==0 &&
+                        <p style = {{
+                            marginLeft :"1rem"
+                        }}>
+                            Aun puedes seleccionar {numSillasPref} sillas generales
+                        </p>
+                    }
+                    <StylesBtns>
+                        <BtnsReserve onClick={backSection}>
+                            Volver
+                        </BtnsReserve>
+                        <BtnsReserve onClick={makeReserve}>
+                            Hacer Reserva
+                        </BtnsReserve>
+                    </StylesBtns>
+                </> :
+                <TitleSelect>
+                    Reserva generada exitosamente.
+                </TitleSelect>
+            }
         </StylesMovieChairs>
     )
 }

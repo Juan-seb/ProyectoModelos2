@@ -127,13 +127,13 @@ const MovieInfoBasic = ({ data }) => {
 
 
     return (
-        <MovieContainer imgBanner={data.pel_v_ruta_banner}>
+        <MovieContainer imgBanner={`http://127.0.0.1:5000/static/peliculas/${data.pel_v_ruta_banner}`}>
             <MovieImage>
-                <img src={data.pel_v_ruta_banner} alt={data.pel_v_titulo} />
+                <img src={`http://127.0.0.1:5000/static/peliculas/${data.pel_v_ruta_banner}`} alt={data.pel_v_titulo} />
             </MovieImage>
             <MovieInfo>
                 <StylesImage>
-                    <img src={data.pel_v_ruta_imagen} alt={data.pel_v_titulo} />
+                    <img src={`http://127.0.0.1:5000/static/peliculas/${data.pel_v_ruta_poster}`} alt={data.pel_v_titulo} />
                 </StylesImage>
                 <StylesContent>
                     <TitleMovie>

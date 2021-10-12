@@ -20,14 +20,14 @@ export const useRequest = (city, type) => {
 
         //pelicula_id
 
-        let theaters = `http://localhost:4000/cartelera/${city}`
-        //let theaters = `http://127.0.0.1:5000/pelicula/cartelera/${city}`
+        /* let theaters = `http://localhost:4000/cartelera/${city}` */
+        let theaters = `http://127.0.0.1:5000/pelicula/cartelera/${city}`
 
-        let premiere = `http://localhost:4000/estrenos/${city}`
-        //let premiere = `http://127.0.0.1:5000/pelicula/proximos_estrenos`
+        /* let premiere = `http://localhost:4000/estrenos/${city}` */
+        let premiere = `http://127.0.0.1:5000/pelicula/proximos_estrenos`
 
-        let see = `http://localhost:4000/vistos/${city}`
-        //let see = `http://127.0.0.1:5000/pelicula/mas_vistos/${city}`
+        /* let see = `http://localhost:4000/vistos/${city}` */
+        let see = `http://127.0.0.1:5000/pelicula/mas_vistos/${city}`
 
         const getAllMovies = async () => {
 

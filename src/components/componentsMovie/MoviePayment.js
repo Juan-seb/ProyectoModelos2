@@ -68,6 +68,7 @@ const BtnOptions = styled.button`
     transition: color .5s;
     font-family: 'Segoe UI';
     cursor: pointer;
+    font-size: 1rem;
 
     &:hover{
         background-color: rgb(190,85,190);

@@ -42,6 +42,8 @@ const StylesImage = styled.div`
     }
 
     @media (min-width:768px){
+        width: 100%;
+        max-width:100%;
         &>img{
             margin-bottom: .5rem;
         
@@ -66,7 +68,7 @@ const StylesContent = styled.div`
 
 `;
 
-const CardMovie = ({ el,history }) => {
+const CardMovie = ({ el, history }) => {
 
     let allGenres = ""
 
@@ -77,7 +79,7 @@ const CardMovie = ({ el,history }) => {
     const goToMovie = () => {
         console.log(window.location.hash.split("/"));
         /*Use this option to go to the desired route */
-        history.push({pathname: `${history.location.pathname}/pelicula/${el.pel_i_id}`})
+        history.push({ pathname: `${history.location.pathname}/pelicula/${el.pel_i_id}` })
     }
 
     return (
@@ -96,9 +98,9 @@ const CardMovie = ({ el,history }) => {
                     </Title>
                     <Text>Fecha estreno: {el.pel_d_estreno}</Text>
                     <Text>Generos: {allGenres.slice(0, -1) + "."}</Text>
-                      <div className="content-tags">
+                    <div className="content-tags">
                         <StylesTags>
-                            <Subtitle>{el.pel_i_duracion}</Subtitle>
+                            <Subtitle>{el.pel_i_duracion} minutos</Subtitle>
                         </StylesTags>
                         <StylesTags>
                             <Subtitle>Edad minima: {el.pel_i_edad_minima}</Subtitle>

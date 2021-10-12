@@ -51,7 +51,7 @@ const StylesPositionChair = styled.div`
 
 `;
 
-const PositionChair = ({ numNormal, numPref, setNumSillasNormal, setNumSillasPref, createChairs, y, x, state }) => {
+const PositionChair = ({ numNormal, numPref, setNumSillasNormal, setNumSillasPref, createChairs, deleteChairs, y, x, state }) => {
 
     const [content, setContent] = useState(null);
     const [stateChair, setStateChair] = useState(state);
@@ -80,10 +80,12 @@ const PositionChair = ({ numNormal, numPref, setNumSillasNormal, setNumSillasPre
         if (stateChair === 6) {
             if (state === 1) {
                 setNumSillasNormal(numNormal + 1);
+                deleteChairs(x,y);
                 setStateChair(1);
             }
             if (state === 2) {
                 setNumSillasPref(numPref + 1);
+                deleteChairs(x,y);
                 setStateChair(2);
             }
         }
