@@ -130,8 +130,8 @@ const MovieChairs = ({ history, setPhase, setDataToReserve, dataToReserve }) => 
                         console.log(res);
                         setChairs(res);
                         setLoader(false);
-                        setWidth((res.data.sillas[0].length * 48) + 158);
-                        setHeight((res.data.sillas.length * 48) + 168);
+                        setWidth((res.data.sillas[0].length * 48) + 180);
+                        setHeight((res.data.sillas.length * 48) + 175);
                     }
                 })
 

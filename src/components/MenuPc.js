@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom"
-import { useLocation } from "react-router-dom"
+import { useLocation , useHistory } from "react-router-dom"
 import styled from "styled-components"
 import BtnUsuario from "./BtnUsuario";
 import LoginUsuario from "./LoginUsuario";
@@ -38,7 +38,9 @@ const MenuStyles = styled.div`
         margin-bottom: 1rem;
         
         &>.logo{
-            background-image: url(${logo});
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
     
     }
@@ -81,14 +83,7 @@ const SearchBarStyles = styled.div`
     padding: .3rem .5rem;
     display: flex;
     background-color: rgb(80,25,80);
-
-    &>.logo{
-        width: 10%;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    
+   
     
 `;
 
@@ -107,6 +102,7 @@ const InputSearch = styled.input`
 const MenuPc = () => {
 
     const [menuUser, setMenuUser] = useState(false)
+    let {history} = useHistory();
 
     const handleChange = () => {
         setMenuUser(menuUser ? false : true)
@@ -117,7 +113,9 @@ const MenuPc = () => {
 
     let idCity = pathname.split("/");
 
-
+    const toHome = () => {
+        window.location.href = `http://localhost:3000/#/${pathname.split('/')[1]}`
+    }
 
     return (
 
@@ -125,7 +123,11 @@ const MenuPc = () => {
             <MenuStyles className="menu">
                 <div className="menu-header">
                     <div className="logo">
-
+                        <p style={{
+                            margin: "0",
+                            color: "white",
+                        }} 
+                        className="title" onClick={toHome}>Cinema UD</p>
                     </div>
                 </div>
                 <div className="menu-navs">
